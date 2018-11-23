@@ -39,6 +39,7 @@ module.exports={
                 use: ['vue-loader'],
                 exclude: /node_modules/
             },
+            { test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=7631&name=[hash:8]-[name].[ext]' }, // 处理 图片路径的 loader
             {test:/\.(ttf|eot|svg|woff|woff2)$/,use:'url-loader'},
         ]
     }
