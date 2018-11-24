@@ -5,3 +5,7 @@
 #页面切换用vue-router
 +设置路由高亮在route.js `linkActiveClass: 'mui-active'`
 #首页轮播图用mint-ui,需要手动设置高度
+
+#增加首页的六宫格 
++用mui的grid-default.html
++然后更换图标和文字，调整样式
