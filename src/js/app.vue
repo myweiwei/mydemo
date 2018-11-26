@@ -3,7 +3,9 @@
         <!-- 头部 -->
         <mt-header title="My Project" fixed>
         </mt-header>
-        <router-view></router-view>
+        <transition>
+            <router-view></router-view>
+        </transition>
         <!-- 底部 -->
         <nav class="mui-bar mui-bar-tab">
             <router-link class='mui-tab-item' to="/home">
@@ -28,8 +30,21 @@
 <style scoped>
     .app-container{
         padding-top: 40px;
+        overflow-x: hidden;
     }
     h1{
         padding:0;margin:0;
+    }
+    .v-enter{
+        transform:translateX(100%);
+        opacity:0
+    }
+    .v-leave-to{
+        transform:translateX(-100%);
+        position: absolute;
+        /* 防止动画时向下飘 */
+    }
+    .v-enter-active,.v-leave-active{
+        transition: all 0.5s ease;
     }
 </style>
