@@ -31,6 +31,7 @@
     .app-container{
         padding-top: 40px;
         overflow-x: hidden;
+        padding-bottom: 50px;
     }
     h1{
         padding:0;margin:0;
