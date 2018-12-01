@@ -11,11 +11,22 @@ import { Swipe, SwipeItem } from 'mint-ui';
 //按钮
 import { Button} from 'mint-ui';
 import { Toast } from 'mint-ui';
+import { Navbar, TabItem } from 'mint-ui';
+import ElementUI from 'element-ui';
 
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.component(Navbar.name, Navbar);
+Vue.component(TabItem.name, TabItem);
+
+import '../../dist/mui/js/mui.min.js'
 Vue.component(Button.name, Button);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Header.name,Header);
+Vue.use(ElementUI);
+// 图片查看器
+import VuePreview from 'vue-preview'        
+Vue.use(VuePreview)
 var vm =new Vue({
     el:'#app',
     render:c=>c(app),

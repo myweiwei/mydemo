@@ -30,7 +30,7 @@
             }
         },
         mounted(){
-            console.log(this.$route.query.id)
+           
         },
         components:{
             comments
