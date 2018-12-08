@@ -4,7 +4,7 @@
         <hr style='margin:0'>
         <textarea maxlength="120" v-model='comm' placeholder="请发表评论（最多不超过120字）" style='font-size:12px;margin:0;border:1px solid #fff;height:85px'></textarea>
         <mt-button type="primary" size='large' style='font-size:15px;' @click='add()'>发表评论</mt-button>
-        <div class="comments-area" v-for="(item,index) in commentlist">
+        <div class="comments-area" v-for="(item,index) in commentlist" :key='index'>
            <p class='top'>第{{index+1}}楼 用户：匿名用户 发表时间：{{item.time | formateDate('YMDHMS')}}</p>
            <p class='content'>{{item.comm}}</p>
         </div>

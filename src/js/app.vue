@@ -1,7 +1,14 @@
 <template>
     <div class='app-container'>
         <!-- 头部 -->
+        <!-- <mt-header title="My Project" fixed>
+           <mt-button icon="back">返回</mt-button>
+        </mt-header> -->
         <mt-header title="My Project" fixed>
+        <a href='#' slot="left">
+            <mt-button icon="back" @click='goback()'>返回</mt-button>
+        </a>
+       
         </mt-header>
         <transition>
             <router-view></router-view>
@@ -27,6 +34,20 @@
 		</nav>
     </div>
 </template>
+<script>
+    export default{
+        data:function(){
+            return {
+
+            }
+        },
+        methods:{
+            goback:function(){
+                this.$router.go(-1);
+            }
+        } 
+    }
+</script>
 <style scoped>
     .mint-header.is-fixed{
         z-index: 5;
@@ -37,7 +58,7 @@
         padding-bottom: 50px;
     }
     h1{
-        padding:0;margin:0;
+        padding:0;margin:0!important;
     }
     .v-enter{
         transform:translateX(100%);

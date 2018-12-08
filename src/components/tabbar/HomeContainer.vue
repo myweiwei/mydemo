@@ -1,11 +1,13 @@
 <template>
     <div>
+        
         <!-- 轮播图区域 -->
-        <mt-swipe :auto="4000" class='swipe'>
+        <!-- <mt-swipe :auto="4000" class='swipe'>
             <mt-swipe-item class='swipe-item'><img src="../../images/miao.jpg" alt=""></mt-swipe-item>
             <mt-swipe-item class='swipe-item'><img src="../../images/miao1.jpg" alt=""></mt-swipe-item>
             <mt-swipe-item class='swipe-item'><img src="../../images/miao2.jpg" alt=""></mt-swipe-item>
-        </mt-swipe>
+        </mt-swipe> -->
+        <lunbotu></lunbotu>
         <!-- 六宫格区域 -->
         <div class="mui-content">
 		        <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -21,9 +23,12 @@
 		                    <div class="mui-media-body">图片分享</div>
                         </router-link>
                     </li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                        <router-link to="/home/goodsList">
 		                    <img src="../../images/menu3.png" alt="">
-		                    <div class="mui-media-body">商品购买</div></a></li>
+		                    <div class="mui-media-body">商品购买</div>
+                        </router-link>
+                    </li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <img src="../../images/menu4.png" alt="">
 		                    <div class="mui-media-body">留言反馈</div></a></li>
@@ -38,23 +43,24 @@
     </div>
     
 </template>
+<script>
+    import lunbotu from '../news/lunbotu.vue'
+    export default{
+        data(){
+            return {
+
+            }
+        },
+        methods:{
+           
+        },
+        components:{
+            lunbotu:lunbotu
+        }
+    }
+</script>
 <style  scoped>
-    .swipe{
-        height:200px;
-    }
-    .swipe-item img{
-        width:100%;
-        height:100%
-    }
-    .swipe-item:nth-child(1){
-        background: red;
-    }
-    .swipe-item:nth-child(2){
-        background: blue;
-    }
-    .swipe-item:nth-child(3){
-        background: yellow;
-    }
+    
     .mui-grid-view.mui-grid-9{
         border:none;
         background: #fff;

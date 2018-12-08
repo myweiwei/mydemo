@@ -7,13 +7,10 @@
                 <span>点击：0次</span> 
             </div>
             <hr> 
-            <ul class='imgList'>
-                <!-- <li><img src="../../images/buoumao/buoumao1.jpg" alt=""></li>
-                <li><img src="../../images/buoumao/buoumao2.jpg" alt=""></li>
-                <li><img src="../../images/buoumao/buoumao3.jpg" alt=""></li>
-                <li><img src="../../images/buoumao/buoumao4.jpg" alt=""></li> -->
-                 <img class="preview-img" v-for="(item, index) in list" :src="item.src" height="100" @click="$preview.open(index, list)">   
+            <ul class='imgList1'>
+                 <li><vue-preview :slides='buoulist' ></vue-preview> </li>  
             </ul>
+           
             <p>
                 布偶猫，又称“布拉多尔（Ragdoll）”，发源于美国，是一种杂交品种宠物猫。是现存体型最大、体重最重的猫之一。头呈楔形，眼大而圆，被毛丰厚，四肢较长且富有肉感，尾长，身体柔软，毛色有重点色、手套色或双色等等。布偶猫较为温顺好静，对人友善。其美丽优雅又非常类似于狗的性格（Puppy cat）而又被称为"仙女猫"，"小狗猫"。特殊的外貌和温和的性格是布偶猫最大的特点之一。
             </p>
@@ -193,27 +190,31 @@
 <script>
 import $ from 'jquery';
 import comments from '../subcomponents/comment.vue';
+import '../../css/global.css'
     export default{
         data(){
             return{
-                list:[]
+                buoulist:[],
+                duanmaolist:[]
             }
         },
         mounted(){
             var show=this.$route.query.id;
             $('#'+show).show();
             $('#show').siblings().hide();
-            this.list=[
-                {src: 'http://localhost:8080/src/images/buoumao/buoumao1.jpg'},
-                {src: 'http://localhost:8080/src/images/buoumao/buoumao2.jpg'},
-                {src: 'http://localhost:8080/src/images/buoumao/buoumao3.jpg'}
+            this.buoulist=[
+                {src: '../../src/images/buoumao/buoumao1.jpg'},
+                {src: '../../src/images/buoumao/buoumao2.jpg'},
+                {src: '../../src/images/buoumao/buoumao3.jpg'},
+                {src: '../../src/images/buoumao/buoumao4.jpg'}
             ]
-            for(var i=0;i<this.list.length;i++){
-                this.list[i].w=600;
-                this.list[i].h=400;
-                this.list[i].msrc=this.list[i].src;
+            for(var i=0;i<this.buoulist.length;i++){
+                this.buoulist[i].w=600;
+                this.buoulist[i].h=400;
+                this.buoulist[i].msrc=this.buoulist[i].src;
             }
-            console.log(this.list);
+            
+          
         },
         components:{
             comments
@@ -221,7 +222,7 @@ import comments from '../subcomponents/comment.vue';
     }
 
 </script>
-<style scoped>
+<style>
     .temp>div{
         display: none;
         padding:5px 10px;
@@ -247,24 +248,34 @@ import comments from '../subcomponents/comment.vue';
        background:#cfcfcf;
        padding:0;
     }
-    .imgList{
+    .imgList,.imgList1{
         margin-top:5px;
         width:100%;
-        height: 175px;
         clear: both;
         padding:0;
     }
+    .imgList{
+        height:200px;
+    }
+    .imgList1 li{
+        list-style: none;
+        padding:20px;
+    }
     .imgList li{
         list-style: none;
-        float: left;
         padding:5px;
+        float: left;
     }
-    .imgList img{
+    .imgList img,.imgList1 img{
         width:80px;
         height:80px;
     }
     p{
         color: #000;
         font-size: 12px;
+    }
+    figure{
+        display: inline;
+        margin:0;
     }
 </style>

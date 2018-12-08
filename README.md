@@ -54,4 +54,15 @@
 #点击图片跳转到图片详情页photoinfo.vue
 +通过url参数 获取参数中的id 通过this.$route.query.id获取id，通过不同id进行信息的筛选
 +图片查看器vue-preview https://www.cnblogs.com/mrszhou/p/7899887.html
++只有布偶猫部分用了view-preview ，当有多个view-preview 会报错 ，没有查到原因?？？/？?/
+但正常邮接口情况下 只用一次即可
 
+
+#商品购买界面 
++goodsList.vue
++flex经典两列布局
+
+#商品详情界面
++goodsInfo.vue只写了一个界面，避免重复工作
++用MUI卡片布局 购买数量用Mui 数字输入框numberbox
++立即购买和加入购物车按钮用mint-ui,弹框用toast ，弹框图标用bootsrap

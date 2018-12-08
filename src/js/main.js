@@ -18,6 +18,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 Vue.component(Navbar.name, Navbar);
 Vue.component(TabItem.name, TabItem);
 
+// import VuePreview from 'vue2-preview';
+// Vue.use(VuePreview)
+
 import '../../dist/mui/js/mui.min.js'
 Vue.component(Button.name, Button);
 Vue.component(Swipe.name, Swipe);
@@ -25,8 +28,10 @@ Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Header.name,Header);
 Vue.use(ElementUI);
 // 图片查看器
-import VuePreview from 'vue-preview'        
-Vue.use(VuePreview)
+import VuePreview from 'vue-preview';        
+Vue.use(VuePreview);
+import { Lazyload } from 'mint-ui';
+Vue.use(Lazyload);
 var vm =new Vue({
     el:'#app',
     render:c=>c(app),
