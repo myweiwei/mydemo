@@ -1,5 +1,14 @@
 <template>
-    <div class="mui-content">
+	<div>
+		<transition 
+		@before-enter='beforeEnter'
+		@enter='enter'
+		@after-enter='afterEnter'
+		>
+			<div class='ball' v-show='showFlag'></div>
+		</transition>
+		
+    	<div class="mui-content">
 			<div class="mui-card">
 				<lunbotu></lunbotu>
 			</div>
@@ -28,29 +37,20 @@
 				</div>
 			</div>
 			
-			<div class="mui-card">
-				<div class="mui-card-header">详细信息</div>
-				<div class="mui-card-content">
-					<div class="mui-card-content-inner">
-						<p>Posted on Nov 6, 2018</p>
-						<p style="color: #333;">1.我们的猫咪均使用进口的疫苗及驱虫保证每只猫咪都很健康 2.我们的种猫都是从各国引进的纯种名猫后代 3.我们猫舍有非常干净，居住在干净的别墅，有猫咪玩耍区，各种爬架，猫别墅。 4.我们有专业的医师团队，专业负责整个猫舍的幼猫疫苗和疾病治疗 5.出售的幼猫接到家之后有任何问题，包退换。 6.支持接到猫咪到就近医院做血液检测，如不纯种，全额退款！！！ 7.购买本猫舍的猫咪，都会给您发送一份猫咪饲养注意事项，方便您饲养猫咪！</p>
-					</div>
-				</div>
-				
-			</div>
-			
-			
 		</div>
+	</div>
 </template>
 <script>
 	import lunbotu from '../news/lunbotu.vue'
 	import { Toast } from 'mint-ui';
 	import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 	import mui from '../../../dist/mui/js/mui.min.js'
+	
 	export default{
 		data(){
 			return {
-
+				showFlag:false,
+				
 			}
 		},
 		created(){
@@ -61,10 +61,32 @@
 				Toast('买买买');
 			},
 			addCar:function(){
-				Toast({
-					message: '操作成功',
-					iconClass: 'glyphicon glyphicon-ok'
-				});
+				// Toast({
+				// 	message: '操作成功',
+				// 	iconClass: 'glyphicon glyphicon-ok'
+				// });
+				this.showFlag=!this.showFlag;
+				
+				var count1=document.getElementById('count').value;
+				//this.$emit('count',count1);
+				this.$store.commit('addCar',count1);
+			},
+			beforeEnter:function(el){
+				
+				el.style.transform='translate(0,0)';
+			},
+			enter:function(el,done){
+				el.offsetWidth;
+				var rectObject = el.getBoundingClientRect();
+				var rectObject1 = document.getElementById('badge').getBoundingClientRect();
+				var x=rectObject1.x-rectObject.x;
+				var y=rectObject1.y-rectObject.y;
+				el.style.transform='translate('+x+'px,'+y+'px)';
+				el.style.transition='all 0.5s';
+				done();
+			},
+			afterEnter:function(){
+				this.showFlag=!this.showFlag;
 			}
 		},
 		mounted(){
@@ -76,11 +98,27 @@
 	}
 </script>
 <style scoped>
+	html,body{
+	height:100%;
+		overflow: hidden;
+	}
 	.form-group{
 		align-items: center;
     	display: flex;
 	}   
 	.mui-card-footer, .mui-card-header{
 		justify-content: space-around;
+	}
+	.ball{
+		width:15px;
+		height: 15px;
+		border-radius: 50%;
+		background: red;
+		position:absolute;
+		top:398px;
+		left:138px;
+		z-index: 100;
+		/* transform:translate(65px,127px); */
+		
 	}
 </style>

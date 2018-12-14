@@ -11,7 +11,7 @@
        
         </mt-header>
         <transition>
-            <router-view></router-view>
+            <router-view @count='getCount'></router-view>
         </transition>
         <!-- 底部 -->
         <nav class="mui-bar mui-bar-tab">
@@ -24,7 +24,7 @@
                 <span class="mui-tab-label">会员</span>
             </router-link>
             <router-link class='mui-tab-item1' to="/shopcar">
-                <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">0</span></span>
+                <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id='badge' >{{$store.state.carcount}}</span></span>
                 <span class="mui-tab-label">购物车</span>
             </router-link>
             <router-link class='mui-tab-item1' to="/search">
@@ -38,12 +38,15 @@
     export default{
         data:function(){
             return {
-
+                count:0
             }
         },
         methods:{
             goback:function(){
                 this.$router.go(-1);
+            },
+            getCount:function(data){
+                this.count+=parseInt(data);
             }
         } 
     }

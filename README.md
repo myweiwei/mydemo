@@ -66,3 +66,6 @@
 +goodsInfo.vue只写了一个界面，避免重复工作
 +用MUI卡片布局 购买数量用Mui 数字输入框numberbox
 +立即购买和加入购物车按钮用mint-ui,弹框用toast ，弹框图标用bootsrap
+
+#购物车界面
++购物车数量用vuex

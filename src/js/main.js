@@ -32,10 +32,53 @@ import VuePreview from 'vue-preview';
 Vue.use(VuePreview);
 import { Lazyload } from 'mint-ui';
 Vue.use(Lazyload);
+
+import Vuex from 'vuex';
+Vue.use(Vuex);
+var store = new Vuex.Store({
+    state:{
+        carcount:0,
+        danjia:2199
+    },
+    mutations:{
+        addCar(state,count){
+            // if(state.carcount>=0){
+            //     state.carcount++;
+            // }
+            
+            // if(state.carcount<0){
+                if(count){
+                    state.carcount+=parseInt(count);
+                }
+                else{
+                    state.carcount++;
+                }
+                
+                
+            //}
+        },
+        delCar(state){
+            // if(state.carcount>0){
+            //     state.carcount--;
+            // }
+            
+            // if(state.carcount<=0){
+                state.carcount--;
+                
+            //}
+        }
+    },
+    getters:{
+        zongjia:function(state){
+            return state.carcount*state.danjia;
+        }
+    }
+})
 var vm =new Vue({
     el:'#app',
     render:c=>c(app),
-    router
+    router,
+    store:store
 })
 Vue.filter('formateDate',function(value, type){
         

@@ -78,5 +78,8 @@
     .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{
         font-size: 13px;
     }
+    a{
+        cursor: pointer;
+    }
     
 </style>
