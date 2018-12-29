@@ -69,3 +69,16 @@
 
 #购物车界面
 +购物车数量用vuex
+
+#watch监听
+ watch:{
+	'$route.path':function(newVal){
+			if(newVal==='/home'){
+				document.getElementById('houtui').style.display='none';
+			}
+			else{
+				document.getElementById('houtui').style.display='block';
+			}
+		}
+}
++watch监听url变化，当为主页时，隐藏返回按钮

@@ -35,9 +35,10 @@ Vue.use(Lazyload);
 
 import Vuex from 'vuex';
 Vue.use(Vuex);
+var carcount = JSON.parse(localStorage.getItem('carcount') || '0');
 var store = new Vuex.Store({
     state:{
-        carcount:0,
+        carcount:carcount,
         danjia:2199
     },
     mutations:{
@@ -53,6 +54,7 @@ var store = new Vuex.Store({
                 else{
                     state.carcount++;
                 }
+                localStorage.setItem('carcount',JSON.stringify(state.carcount));
                 
                 
             //}

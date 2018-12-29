@@ -41,10 +41,12 @@ import mui from '../../../dist/mui/js/mui.min.js'
         },
         mounted(){
             mui('.mui-numbox').numbox();
-            mui('.mui-numbox').numbox().setValue(this.$store.state.carcount);
-            console.log(this.$store.state.carcount);
+
+            document.getElementById('count').value=this.$store.state.carcount;
+            
         },
         created(){
+            
             //mui('.mui-numbox').numbox().setValue(this.$store.state.carcount);
         },
         methods:{

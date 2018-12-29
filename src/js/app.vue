@@ -5,9 +5,9 @@
            <mt-button icon="back">返回</mt-button>
         </mt-header> -->
         <mt-header title="My Project" fixed>
-        <a href='#' slot="left">
+        <span slot="left" id='houtui'>
             <mt-button icon="back" @click='goback()'>返回</mt-button>
-        </a>
+        </span>
        
         </mt-header>
         <transition>
@@ -41,6 +41,9 @@
                 count:0
             }
         },
+        mounted(){
+            document.getElementById('houtui').style.display='none';
+        },
         methods:{
             goback:function(){
                 this.$router.go(-1);
@@ -48,7 +51,17 @@
             getCount:function(data){
                 this.count+=parseInt(data);
             }
-        } 
+        } ,
+        watch:{
+            '$route.path':function(newVal){
+               if(newVal==='/home'){
+                   document.getElementById('houtui').style.display='none';
+               }
+               else{
+                   document.getElementById('houtui').style.display='block';
+               }
+            }
+        }
     }
 </script>
 <style scoped>
